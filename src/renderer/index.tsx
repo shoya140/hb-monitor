@@ -52,8 +52,10 @@ const App: React.FC = () => {
         createImageElement: () => document.createElement('img'),
       })
 
-      await faceapi.nets.tinyFaceDetector.load('/models')
-      await faceapi.nets.faceLandmark68TinyNet.load('/models')
+      const modelPath =
+        process.env.NODE_ENV === 'development' ? 'models' : './models'
+      await faceapi.nets.tinyFaceDetector.load(modelPath)
+      await faceapi.nets.faceLandmark68TinyNet.load(modelPath)
 
       video = document.querySelector('#webcam-video') as HTMLVideoElement
       const context = (

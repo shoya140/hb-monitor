@@ -22,7 +22,11 @@ const createWindow = () => {
   }
 }
 
-app.on('ready', () => {
+app.on('ready', async () => {
+  if (process.platform === 'darwin') {
+    await systemPreferences.askForMediaAccess('camera')
+  }
+
   createWindow()
 
   app.on('activate', () => {

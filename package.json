@@ -18,7 +18,14 @@
       "build/**/*"
     ],
     "mac": {
-      "target": "dmg"
+      "target": "dmg",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "extendInfo": {
+        "NSCameraUsageDescription": "Requried for heart beat monitoring."
+      }
     },
     "win": {
       "target": "nsis"
