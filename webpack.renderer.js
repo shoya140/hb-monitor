@@ -11,5 +11,12 @@ module.exports = [
     devServer: {
       historyApiFallback: true,
     },
+    resolve: {
+      ...baseConfig.resolve,
+      fallback: {
+        fs: false,
+      },
+    },
+    devtool: 'source-map',
   },
 ]

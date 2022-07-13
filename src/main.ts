@@ -1,14 +1,15 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, systemPreferences } from 'electron'
 import * as path from 'path'
 
 let mainWindow: Electron.BrowserWindow
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 900,
+    width: 1280,
     minWidth: 450,
-    height: 600,
+    height: 800,
     minHeight: 300,
+    titleBarStyle: 'hiddenInset',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
